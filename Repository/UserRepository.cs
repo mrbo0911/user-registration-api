@@ -32,6 +32,12 @@ namespace Repository
                         .FirstOrDefaultAsync();
         }
 
+        public async Task<User> GetUserByIcNumber(string icNumber)
+        {
+            return await FindByCondition(user => user.IcNumber.Equals(icNumber))
+                        .FirstOrDefaultAsync();
+        }
+
         public async Task CreateUser(User user)
         {
             Create(user);

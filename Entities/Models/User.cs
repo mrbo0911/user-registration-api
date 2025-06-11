@@ -1,13 +1,25 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Models
 {
     public class User
     {
-        public Guid Id { get; set; }    // Primary key
+        [Key]
+        public Guid Id { get; set; }
+
+        [Required]
+        public string IcNumber { get; set; }
+
+        [Required]
         public string UserName { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        public string EmailAddress { get; set; }
+
         public string? PinHash { get; set; }
         public bool IsMigrated { get; set; }
         public bool HasAcceptedPrivacyPolicy { get; set; }

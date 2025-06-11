@@ -5,12 +5,15 @@ namespace UserRegistrationAPI.DTOs
     public class UserRegisterDto 
     {
         [Required]
-        public string UserName { get; set; }
-
-        [Required, EmailAddress]
-        public string Email { get; set; }
+        public string IcNumber { get; set; }
 
         [Required]
-        public string Phone { get; set; }
+        public string UserName { get; set; }
+
+        [Required]
+        public string PhoneNumber { get; set; }
+
+        [Required, EmailAddress]
+        public string EmailAddress { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace Contracts
 
         Task<User> GetUserById(Guid id);
 
+        Task<User> GetUserByIcNumber(string icNumber);
+
         Task CreateUser(User user);
 
         Task UpdateUser(User dbuser, User user);
