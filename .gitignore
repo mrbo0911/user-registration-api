@@ -1,0 +1,12 @@
+/.vs
+/Contracts/obj
+/Contracts/bin
+/Entities/obj
+/Entities/bin
+/LoggerService/obj
+/LoggerService/bin
+/Logs
+/Repository/obj
+/Repository/bin
+/UserRegistrationAPI/obj
+/UserRegistrationAPI/bin
