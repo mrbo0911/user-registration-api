@@ -1,4 +1,4 @@
-namespace UserRegistrationAPI.DTOs
+namespace UserRegistration.Application.DTOs
 {
     public class UserMigrateDto 
     { 

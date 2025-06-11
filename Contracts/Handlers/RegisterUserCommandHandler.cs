@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
+using UserRegistration.Application.Commands;
 using UserRegistration.Domain.Entities;
 using UserRegistration.Domain.Interfaces;
 
@@ -35,8 +38,14 @@ namespace UserRegistration.Application.Handlers
                 HasCompletedOnboarding = false
             };
 
-            _repository.CreateUser(user);
-            await _repository.SaveAsync();
+            await _repository.CreateUser(user);
+            //await _repository.SaveAsync();
+
+
+            // If the user is created successfully, acquire the OTP by calling to 3rd party service
+            // For now, we will just return the created user entity
+            // This is a placeholder for the OTP sending logic
+            // await _otpService.SendOtpAsync(userEntity.PhoneNumber);
 
             return new CreatedAtActionResult("GetUserByIcNumber", "User", new { icNumber = user.IcNumber }, user);
         }

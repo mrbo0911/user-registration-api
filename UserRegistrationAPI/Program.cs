@@ -1,9 +1,10 @@
-﻿using Contracts;
-using Entities;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UserRegistration.Application.Handlers;
+using UserRegistration.Domain.Interfaces;
+using UserRegistration.Infrastructure.Persistence;
 using UserRegistration.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,4 +36,10 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
 
     // Add Swagger services
     builder.Services.AddSwaggerGen();
+
+    // Register repository dependencies
+    builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+    // Register MediatR for CQRS
+    builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<RegisterUserCommandHandler>());
 }

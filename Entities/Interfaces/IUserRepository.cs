@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UserRegistration.Domain.Entities;
 
 namespace UserRegistration.Domain.Interfaces
 {
@@ -8,9 +9,9 @@ namespace UserRegistration.Domain.Interfaces
     {
         Task<IEnumerable<User>> GetAllUsers();
 
-        Task<User> GetUserById(Guid id);
+        Task<User> GetUserByIdAsync(Guid id);
 
-        Task<User> GetUserByIcNumber(string icNumber);
+        Task<User> GetUserByIcNumberAsync(string icNumber);
 
         Task CreateUser(User user);
 

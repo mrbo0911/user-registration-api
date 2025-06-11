@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\UserRegistration.Application.csproj" />
     <ProjectReference Include="..\Entities\UserRegistration.Domain.csproj" />
   </ItemGroup>
 

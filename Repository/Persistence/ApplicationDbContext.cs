@@ -1,5 +1,5 @@
-﻿using Entities.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using UserRegistration.Domain.Entities;
 
 namespace UserRegistration.Infrastructure.Persistence
 {

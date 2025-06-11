@@ -1,5 +1,5 @@
-﻿using Contracts;
-using Entities;
+﻿using UserRegistration.Domain.Interfaces;
+using UserRegistration.Infrastructure.Persistence;
 
 namespace UserRegistration.Infrastructure.Repositories
 {

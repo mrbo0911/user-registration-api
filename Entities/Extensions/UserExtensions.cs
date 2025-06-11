@@ -1,4 +1,6 @@
-﻿namespace UserRegistration.Domain.Extensions
+﻿using UserRegistration.Domain.Entities;
+
+namespace UserRegistration.Domain.Extensions
 {
     public static class UserExtensions
     {

@@ -4,5 +4,5 @@ using UserRegistration.Application.DTOs;
 
 namespace UserRegistration.Application.Commands
 {
-    public record RegisterUserCommand(UserRegisterDto Dto) : IRequest<IActionResult>;
+    public record UpdateUserCommand(string IcNumber, UserUpdateDto Dto) : IRequest<IActionResult>;
 }

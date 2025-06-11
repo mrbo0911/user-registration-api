@@ -1,6 +1,5 @@
-namespace UserRegistrationAPI.DTOs
+namespace UserRegistration.Application.DTOs
 {
-
     public class PinDto 
     { 
         public string Phone { get; set; } 

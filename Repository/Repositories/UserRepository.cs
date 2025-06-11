@@ -1,12 +1,12 @@
-﻿using Contracts;
-using Entities;
-using Entities.Extensions;
-using Entities.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserRegistration.Domain.Entities;
+using UserRegistration.Domain.Extensions;
+using UserRegistration.Domain.Interfaces;
+using UserRegistration.Infrastructure.Persistence;
 
 namespace UserRegistration.Infrastructure.Repositories
 {
@@ -26,13 +26,13 @@ namespace UserRegistration.Infrastructure.Repositories
                         .ToListAsync();
         }
 
-        public async Task<User> GetUserById(Guid id)
+        public async Task<User> GetUserByIdAsync(Guid id)
         {
             return await FindByCondition(user => user.Id == id)
                         .FirstOrDefaultAsync();
         }
 
-        public async Task<User> GetUserByIcNumber(string icNumber)
+        public async Task<User> GetUserByIcNumberAsync(string icNumber)
         {
             return await FindByCondition(user => user.IcNumber.Equals(icNumber))
                         .FirstOrDefaultAsync();
