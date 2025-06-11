@@ -1,6 +1,4 @@
-﻿using Entities.Models;
-
-namespace Entities.Extensions
+﻿namespace UserRegistration.Domain.Extensions
 {
     public static class UserExtensions
     {

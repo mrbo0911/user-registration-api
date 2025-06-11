@@ -1,9 +1,8 @@
-﻿using Entities.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Contracts
+namespace UserRegistration.Domain.Interfaces
 {
     public interface IUserRepository : IRepositoryBase<User>
     {

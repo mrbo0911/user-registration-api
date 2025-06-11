@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace UserRegistration.Infrastructure.Repositories
 {
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {

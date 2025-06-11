@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Entities.Models
+namespace UserRegistration.Domain.Entities
 {
     public class OtpVerification
     {

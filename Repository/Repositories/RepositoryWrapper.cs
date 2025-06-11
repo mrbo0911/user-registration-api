@@ -1,7 +1,7 @@
 ﻿using Contracts;
 using Entities;
 
-namespace Repository
+namespace UserRegistration.Infrastructure.Repositories
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {

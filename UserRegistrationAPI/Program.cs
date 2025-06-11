@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Repository;
+using UserRegistration.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

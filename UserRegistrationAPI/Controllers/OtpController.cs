@@ -17,21 +17,6 @@ namespace UserRegistrationAPI.Controllers
             _repository = repository;
         }
 
-        [HttpPost("send")]
-        public IActionResult Send([FromBody] OtpDto dto)
-        {
-            var otp = new OtpVerification
-            {
-                Phone = dto.Phone,
-                Code = "1234",
-                SentAt = DateTime.UtcNow,
-                IsVerified = false
-            };
-            _context.Otps.Add(otp);
-            _context.SaveChanges();
-            return Ok("OTP sent");
-        }
-
         [HttpPost("verify")]
         public IActionResult Verify([FromBody] OtpDto dto)
         {

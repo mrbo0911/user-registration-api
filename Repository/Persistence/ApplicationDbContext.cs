@@ -1,7 +1,7 @@
 ﻿using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entities
+namespace UserRegistration.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext
     {

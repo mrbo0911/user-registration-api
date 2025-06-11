@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Cont
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{D1CFCABF-DC8A-404B-A71C-7D72BF6E8A43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{0DB537E2-3ADD-42BF-94DB-E4FB9619F495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Infrastructure", "Repository\UserRegistration.Infrastructure.csproj", "{0DB537E2-3ADD-42BF-94DB-E4FB9619F495}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
