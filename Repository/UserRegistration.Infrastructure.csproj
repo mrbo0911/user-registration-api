@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\Contracts\UserRegistration.Application.csproj" />
+    <ProjectReference Include="..\Entities\UserRegistration.Domain.csproj" />
   </ItemGroup>
 
 </Project>
