@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistrationAPI", "UserRegistrationAPI\UserRegistrationAPI.csproj", "{33986779-8B13-4A9E-948C-C3B6F4A516E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.API", "UserRegistration.API\UserRegistration.API.csproj", "{33986779-8B13-4A9E-948C-C3B6F4A516E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Application", "Contracts\UserRegistration.Application.csproj", "{587D7BA5-4F6C-4E80-8DAE-22E4AA79AB17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Application", "UserRegistration.Application\UserRegistration.Application.csproj", "{587D7BA5-4F6C-4E80-8DAE-22E4AA79AB17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Domain", "Entities\UserRegistration.Domain.csproj", "{D1CFCABF-DC8A-404B-A71C-7D72BF6E8A43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Domain", "UserRegistration.Domain\UserRegistration.Domain.csproj", "{D1CFCABF-DC8A-404B-A71C-7D72BF6E8A43}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Infrastructure", "Repository\UserRegistration.Infrastructure.csproj", "{0DB537E2-3ADD-42BF-94DB-E4FB9619F495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistration.Infrastructure", "UserRegistration.Infrastructure\UserRegistration.Infrastructure.csproj", "{0DB537E2-3ADD-42BF-94DB-E4FB9619F495}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
