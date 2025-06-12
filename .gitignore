@@ -11,3 +11,11 @@
 /UserRegistrationAPI/obj
 /UserRegistrationAPI/bin
 /UserRegistrationAPI/appsettings.json
+/UserRegistration.API/obj
+/UserRegistration.API/bin
+/UserRegistration.Application/obj
+/UserRegistration.Application/bin
+/UserRegistration.Domain/obj
+/UserRegistration.Domain/bin
+/UserRegistration.Infrastructure/obj
+/UserRegistration.Infrastructure/bin
