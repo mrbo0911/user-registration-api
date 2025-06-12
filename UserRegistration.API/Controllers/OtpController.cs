@@ -1,49 +1,56 @@
-﻿//using MediatR;
-//using Microsoft.AspNetCore.Mvc;
-//using System;
-//using System.Threading.Tasks;
-//using UserRegistration.Application.Commands.OtpCommands;
-//using UserRegistration.Application.DTOs;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using UserRegistration.Application.Commands.OtpCommands;
+using UserRegistration.Application.DTOs;
 
-//namespace UserRegistrationAPI.Controllers
-//{
-//    [ApiController]
-//    [Route("api/[controller]")]
-//    public class OtpController : ControllerBase
-//    {
-//        private readonly IMediator _mediator;
+namespace UserRegistrationAPI.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class OtpController : ControllerBase
+    {
+        private readonly IMediator _mediator;
 
-//        public OtpController(IMediator mediator)
-//        {
-//            _mediator = mediator;
-//        }
+        public OtpController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
-//        [HttpPost("verify")]
-//        public IActionResult Verify([FromBody] OtpDto dto)
-//        {
-//            var otp = _context.Otps
-//                .Where(o => o.Phone == dto.Phone && o.Code == dto.Code && !o.IsVerified)
-//                .OrderByDescending(o => o.SentAt)
-//                .FirstOrDefault();
+        [HttpGet("getAllPhoneOtps")]
+        public async Task<IActionResult> GetAllPhoneOtps()
+        {
+            return await _mediator.Send(new GetAllPhoneOtpsCommand());
+        }
 
-//            if (otp == null)
-//                return BadRequest("Invalid or expired OTP");
+        [HttpGet("phone/{icNumber}")]
+        public async Task<IActionResult> GetPhoneOtpByIcNumber(string icNumber)
+        {
+            return await _mediator.Send(new GetPhoneOtpByIcNumberCommand(icNumber));
+        }
 
-//            if (otp.IsExpired)
-//                return BadRequest("OTP has expired");
+        [HttpGet("getAllEmailOtps")]
+        public async Task<IActionResult> GetAllEmailOtps()
+        {
+            return await _mediator.Send(new GetAllEmailOtpsCommand());
+        }
 
-//            otp.IsVerified = true;
-//            _context.SaveChanges();
-//            return Ok("OTP verified");
-//        }
+        [HttpGet("email/{icNumber}")]
+        public async Task<IActionResult> GetEmailOtpByIcNumber(string icNumber)
+        {
+            return await _mediator.Send(new GetEmailOtpByIcNumberCommand(icNumber));
+        }
 
-//        [HttpDelete("cleanup")]
-//        public IActionResult CleanupExpiredOtps()
-//        {
-//            var expiredOtps = _context.Otps.Where(o => o.IsExpired && !o.IsVerified).ToList();
-//            _context.Otps.RemoveRange(expiredOtps);
-//            _context.SaveChanges();
-//            return Ok($"Deleted {expiredOtps.Count} expired OTPs");
-//        }
-//    }
-//}
+        [HttpPost("verifyPhoneOtp")]
+        public async Task<IActionResult> VerifyPhoneOtpAsync([FromBody]PhoneOtpDto dto)
+        {
+            return await _mediator.Send(new VerifyPhoneOtpCommand(dto));
+        }
+
+        [HttpPost("verifyEmailOtp")]
+        public async Task<IActionResult> VerifyEmailOtpAsync([FromBody]EmailOtpDto dto)
+        {
+            return await _mediator.Send(new VerifyEmailOtpCommand(dto));
+        }
+    }
+}

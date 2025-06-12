@@ -1,21 +1,23 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserRegistration.Domain.Entities
 {
-    public class Otp
+    public class PhoneOtp
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required]
-        public string PhoneNumber { get; set; }
+        [ForeignKey("User")]
+        public string IcNumber { get; set; }
 
         [Required]
-        public string Code { get; set; }
+        public int Code { get; set; }
+
         public DateTime SentAt { get; set; }
         public bool IsVerified { get; set; }
-
         public DateTime ExpiresAt;
         public bool IsExpired { get; set; }
     }

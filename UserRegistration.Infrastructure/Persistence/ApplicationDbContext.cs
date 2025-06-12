@@ -9,6 +9,7 @@ namespace UserRegistration.Infrastructure.Persistence
         {
         }
         public DbSet<User> Users { get; set; }
-        public DbSet<Otp> Otps { get; set; }
+        public DbSet<PhoneOtp> PhoneOtps { get; set; }
+        public DbSet<EmailOtp> EmailOtps { get; set; }
     }
 }

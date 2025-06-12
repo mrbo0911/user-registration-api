@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,11 +11,8 @@ namespace UserRegistration.Infrastructure.Repositories
 {
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
-        private ApplicationDbContext _repositoryContext;
-
         public UserRepository(ApplicationDbContext repositoryContext) : base(repositoryContext)
         {
-            _repositoryContext = repositoryContext;
         }
 
         public async Task<IEnumerable<User>> GetAllUsers()
@@ -24,12 +20,6 @@ namespace UserRegistration.Infrastructure.Repositories
             return await FindAll()
                         .OrderBy(User => User.UserName)
                         .ToListAsync();
-        }
-
-        public async Task<User> GetUserByIdAsync(Guid id)
-        {
-            return await FindByCondition(user => user.Id == id)
-                        .FirstOrDefaultAsync();
         }
 
         public async Task<User> GetUserByIcNumberAsync(string icNumber)
@@ -54,6 +44,24 @@ namespace UserRegistration.Infrastructure.Repositories
         public async Task DeleteUser(User user)
         {
             Delete(user);
+            await SaveAsync();
+        }
+
+        public async Task AcceptConsentPrivacy(User user)
+        {
+            Update(user);
+            await SaveAsync();
+        }
+
+        public async Task CreatePin(User user)
+        {
+            Update(user);
+            await SaveAsync();
+        }
+
+        public async Task EnableBiometric(User user)
+        {
+            Update(user);
             await SaveAsync();
         }
     }

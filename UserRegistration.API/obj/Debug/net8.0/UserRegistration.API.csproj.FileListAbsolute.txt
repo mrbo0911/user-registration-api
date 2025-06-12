@@ -1,4 +1,3 @@
-D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\bin\Debug\net8.0\nlog.config
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\bin\Debug\net8.0\UserRegistration.API.staticwebassets.endpoints.json
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\bin\Debug\net8.0\UserRegistration.API.exe
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\bin\Debug\net8.0\UserRegistration.API.deps.json
@@ -290,10 +289,10 @@ D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegist
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.UserRegistration.API.props
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.UserRegistration.API.props
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\UserRegi.4C2C6C23.Up2Date
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\UserRegistration.API.dll
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\refint\UserRegistration.API.dll
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\UserRegistration.API.pdb
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\UserRegistration.API.genruntimeconfig.cache
 D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\ref\UserRegistration.API.dll
+D:\Projects\Freelancer\Fiverr\Production Source\user-registration-api\UserRegistration.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

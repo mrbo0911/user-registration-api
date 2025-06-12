@@ -4,54 +4,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UserRegistration.Domain.Entities;
-using UserRegistration.Domain.Extensions;
 using UserRegistration.Domain.Interfaces;
 using UserRegistration.Infrastructure.Persistence;
 
 namespace UserRegistration.Infrastructure.Repositories
 {
-    public class OtpRepository : RepositoryBase<Otp>, IOtpRepository
+    public class EmailOtpRepository : RepositoryBase<EmailOtp>, IEmailOtpRepository
     {
-        private ApplicationDbContext _repositoryContext;
-
-        public OtpRepository(ApplicationDbContext repositoryContext) : base(repositoryContext)
+        public EmailOtpRepository(ApplicationDbContext repositoryContext) : base(repositoryContext)
         {
-            _repositoryContext = repositoryContext;
         }
 
-        public async Task<IEnumerable<Otp>> GetAllOtpsAsync()
+        public async Task<IEnumerable<EmailOtp>> GetAllEmailOtpsAsync()
         {
             return await FindAll()
                         .OrderBy(otp => otp.SentAt)
                         .ToListAsync();
         }
 
-        public async Task<Otp> GetOtpByIdAsync(Guid id)
+        public async Task<EmailOtp> GetEmailOtpByIdAsync(Guid id)
         {
             return await FindByCondition(otp => otp.Id == id)
                         .FirstOrDefaultAsync();
         }
 
-        public async Task<Otp> GetOtpByPhoneNumberAsync(string phoneNumber)
+        public async Task<EmailOtp> GetEmailOtpByIcNumberAsync(string icNumber)
         {
-            return await FindByCondition(otp => otp.PhoneNumber.Equals(phoneNumber))
+            return await FindByCondition(otp => otp.IcNumber.Equals(icNumber))
                         .FirstOrDefaultAsync();
         }
 
-        public async Task CreateOtpAsync(Otp otp)
+        public async Task CreateEmailOtpAsync(EmailOtp otp)
         {
             Create(otp);
             await SaveAsync();
         }
 
-        public async Task UpdateOtpAsync(Otp dbOtp, Otp otp)
+        public async Task UpdateEmailOtpAsync(EmailOtp otp)
         {
-            dbOtp.Map(otp);
-            Update(dbOtp);
+            Update(otp);
             await SaveAsync();
         }
 
-        public async Task DeleteOtpAsync(Otp otp)
+        public async Task DeleteEmailOtpAsync(EmailOtp otp)
         {
             Delete(otp);
             await SaveAsync();

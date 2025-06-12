@@ -28,8 +28,8 @@ namespace UserRegistration.Application.Handlers.UserHandlers
             {
                 IcNumber = request.IcNumber,
                 UserName = dto.UserName,
-                EmailAddress = dto.Email,
-                PhoneNumber = dto.Phone,
+                EmailAddress = dto.EmailAddress,
+                PhoneNumber = dto.PhoneNumber,
                 IsMigrated = dbUser.IsMigrated,
                 HasAcceptedPrivacyPolicy = dbUser.HasAcceptedPrivacyPolicy,
                 HasCompletedOnboarding = dbUser.HasCompletedOnboarding,

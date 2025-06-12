@@ -17,13 +17,16 @@ namespace UserRegistration.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.17");
 
-            modelBuilder.Entity("UserRegistration.Domain.Entities.Otp", b =>
+            modelBuilder.Entity("UserRegistration.Domain.Entities.EmailOtp", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Code")
+                    b.Property<int>("Code")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("IcNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -33,22 +36,44 @@ namespace UserRegistration.Infrastructure.Migrations
                     b.Property<bool>("IsVerified")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("PhoneNumber")
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailOtps");
+                });
+
+            modelBuilder.Entity("UserRegistration.Domain.Entities.PhoneOtp", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Code")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("IcNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsExpired")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("SentAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Otps");
+                    b.ToTable("PhoneOtps");
                 });
 
             modelBuilder.Entity("UserRegistration.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("IcNumber")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedAt")
@@ -64,10 +89,6 @@ namespace UserRegistration.Infrastructure.Migrations
                     b.Property<bool>("HasCompletedOnboarding")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("IcNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("IsMigrated")
                         .HasColumnType("INTEGER");
 
@@ -82,7 +103,7 @@ namespace UserRegistration.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("IcNumber");
 
                     b.ToTable("Users");
                 });

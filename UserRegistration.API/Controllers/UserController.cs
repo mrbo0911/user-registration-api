@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
+using UserRegistration.Application.Commands.PinCommands;
 using UserRegistration.Application.Commands.UserCommands;
 using UserRegistration.Application.DTOs;
 
@@ -24,13 +24,7 @@ namespace UserRegistrationAPI.Controllers
             return await _mediator.Send(new GetAllUsersCommand());
         }
 
-        [HttpGet("byId/{id}")]
-        public async Task<IActionResult> GetUserById(Guid id)
-        {
-            return await _mediator.Send(new GetUserByIdCommand(id));
-        }
-
-        [HttpGet("byIc/{icNumber}")]
+        [HttpGet("{icNumber}")]
         public async Task<IActionResult> GetUserByIcNumber(string icNumber)
         {
             return await _mediator.Send(new GetUserByIcNumberCommand(icNumber));
@@ -43,6 +37,24 @@ namespace UserRegistrationAPI.Controllers
                 return BadRequest("Invalid user input");
 
             return await _mediator.Send(new RegisterUserCommand(userDto));
+        }
+
+        [HttpPost("consentPrivacy")]
+        public async Task<IActionResult> ConsentPrivacy([FromQuery]string icNumber)
+        {
+            return await _mediator.Send(new ConsentPrivacyCommand(icNumber));
+        }
+
+        [HttpPost("createPin")]
+        public async Task<IActionResult> CreatePin([FromQuery]string icNumber, [FromQuery]string pin, [FromQuery]string confirmPin)
+        {
+            return await _mediator.Send(new CreatePinCommand(icNumber, pin, confirmPin));
+        }
+
+        [HttpPost("enableBiometric")]
+        public async Task<IActionResult> EnableBiometric([FromQuery] string icNumber)
+        {
+            return await _mediator.Send(new EnableBiometricCommand(icNumber));
         }
 
         [HttpPut("{icNumber}")]
@@ -58,6 +70,12 @@ namespace UserRegistrationAPI.Controllers
         public async Task<IActionResult> DeleteUser(string icNumber)
         {
             return await _mediator.Send(new DeleteUserCommand(icNumber));
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromQuery] string icNumber)
+        {
+            return await _mediator.Send(new LoginCommand(icNumber));
         }
     }
 }

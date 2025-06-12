@@ -6,8 +6,6 @@ namespace UserRegistration.Domain.Entities
     public class User
     {
         [Key]
-        public Guid Id { get; set; }
-
         [Required]
         public string IcNumber { get; set; }
 

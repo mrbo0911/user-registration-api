@@ -14,11 +14,4 @@
     <ProjectReference Include="..\UserRegistration.Domain\UserRegistration.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\PinCommands\" />
-    <Folder Include="Commands\OtpCommands\" />
-    <Folder Include="Handlers\PinHandlers\" />
-    <Folder Include="Handlers\OtpHandlers\" />
-  </ItemGroup>
-
 </Project>

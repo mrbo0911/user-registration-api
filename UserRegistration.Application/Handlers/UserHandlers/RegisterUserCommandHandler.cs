@@ -7,6 +7,7 @@ using UserRegistration.Application.Commands.UserCommands;
 using UserRegistration.Application.Events;
 using UserRegistration.Domain.Entities;
 using UserRegistration.Domain.Interfaces;
+using UserRegistration.Domain.Services;
 
 namespace UserRegistration.Application.Handlers.UserHandlers
 {
@@ -14,11 +15,13 @@ namespace UserRegistration.Application.Handlers.UserHandlers
     {
         private readonly IUserRepository _repository;
         private readonly IMediator _mediator;
+        private readonly IOtpService _otpService;
 
-        public RegisterUserCommandHandler(IUserRepository repository, IMediator mediator)
+        public RegisterUserCommandHandler(IUserRepository repository, IMediator mediator, IOtpService otpService)
         {
             _repository = repository;
             _mediator = mediator;
+            _otpService = otpService;
         }
 
         public async Task<IActionResult> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
@@ -43,18 +46,12 @@ namespace UserRegistration.Application.Handlers.UserHandlers
 
             await _repository.CreateUser(user);
 
-            // If the user is created successfully, acquire the OTP by calling to 3rd party service  
-            // For now, we will just return the created user entity  
-            // This is a placeholder for the OTP sending logic  
-            // await _otpService.SendOtpAsync(userEntity.PhoneNumber);
-
             // Simulate sending and returning a 4-digit OTP for demonstration/testing.
-            var otp = new Random().Next(1000, 9999).ToString();
+            var phoneOtp = await _otpService.GeneratePhoneOtpAsync(user.PhoneNumber, user.IcNumber);
+            var emailOtp = await _otpService.GenerateEmailOtpAsync(user.EmailAddress, user.IcNumber);
 
             // Save the OTP in the database or cache for verification later
-            //await _otpRepository.SaveOtpAsync(userEntity.IcNumber, otp);
-
-            await _mediator.Publish(new UserRegisteredEvent(user, otp), cancellationToken);
+            await _mediator.Publish(new UserRegisteredEvent(user, phoneOtp, emailOtp), cancellationToken);
 
             var result = new
             {
@@ -66,7 +63,8 @@ namespace UserRegistration.Application.Handlers.UserHandlers
                     user.EmailAddress,
                     user.CreatedAt
                 },
-                otpCode = otp
+                phoneOtp,
+                emailOtp
             };
 
             return new CreatedAtActionResult("GetUserByIcNumber", "User", new { icNumber = user.IcNumber }, result);

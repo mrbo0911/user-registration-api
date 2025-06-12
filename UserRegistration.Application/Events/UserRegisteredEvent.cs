@@ -3,5 +3,5 @@ using UserRegistration.Domain.Entities;
 
 namespace UserRegistration.Application.Events
 {
-    public record UserRegisteredEvent(User User, string OtpCode) : INotification;
+    public record UserRegisteredEvent(User User, int PhoneOtp, int EmailOtp) : INotification;
 }

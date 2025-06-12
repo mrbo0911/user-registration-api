@@ -4,8 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UserRegistration.Application.Handlers.UserHandlers;
 using UserRegistration.Domain.Interfaces;
+using UserRegistration.Domain.Services;
 using UserRegistration.Infrastructure.Persistence;
 using UserRegistration.Infrastructure.Repositories;
+using UserRegistration.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +41,11 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
 
     // Register repository dependencies
     builder.Services.AddScoped<IUserRepository, UserRepository>();
-    builder.Services.AddScoped<IOtpRepository, OtpRepository>();
+    builder.Services.AddScoped<IPhoneOtpRepository, PhoneOtpRepository>();
+    builder.Services.AddScoped<IEmailOtpRepository, EmailOtpRepository>();
+
+    // Register Otp service
+    builder.Services.AddScoped<IOtpService, OtpService>();
 
     // Register MediatR for CQRS
     builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<RegisterUserCommandHandler>());

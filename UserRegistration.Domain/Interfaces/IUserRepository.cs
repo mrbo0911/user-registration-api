@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UserRegistration.Domain.Entities;
 
@@ -9,14 +8,18 @@ namespace UserRegistration.Domain.Interfaces
     {
         Task<IEnumerable<User>> GetAllUsers();
 
-        Task<User> GetUserByIdAsync(Guid id);
-
         Task<User> GetUserByIcNumberAsync(string icNumber);
 
         Task CreateUser(User user);
 
-        Task UpdateUser(User dbuser, User user);
+        Task UpdateUser(User dbUser, User user);
 
         Task DeleteUser(User user);
+
+        Task AcceptConsentPrivacy(User user);
+
+        Task CreatePin(User user);
+
+        Task EnableBiometric(User user);
     }
 }
